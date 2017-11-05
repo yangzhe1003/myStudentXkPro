@@ -1,2 +1,5 @@
-# myStudentXkPro
-学生选课系统升级版
+学生选课系统
+Vue框架
+npm install
+npm run dev
+端口号30002
