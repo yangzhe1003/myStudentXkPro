@@ -15,7 +15,7 @@ export default{
   },
   actions:{
     findAllClasses(context){
-      axios.get('http://127.0.0.1:3000/class/findAll').then(({data})=>{
+      axios.get('http://101.132.44.172:30002/class/findAll').then(({data})=>{
         context.commit('alertClasses',data);
       }).catch();
     }

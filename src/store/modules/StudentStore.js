@@ -15,7 +15,7 @@ export default{
   },
   actions:{
     findAllStudent(context){
-      axios.get('http://127.0.0.1:3000/student/findAll').then(({data})=>{
+      axios.get('http://101.132.44.172:30002/student/findAll').then(({data})=>{
         console.log(data);
         data.forEach((item,index)=>{
           item.birth = moment(item.birth).format('YYYY-MM-DD');
@@ -28,7 +28,7 @@ export default{
     },
     saveStudent(context,form){
       return new Promise((resolve,reject)=>{
-        axios.post('http://127.0.0.1:3000/student/save',form).then((result)=>{
+        axios.post('http://101.132.44.172:30002/student/save',form).then((result)=>{
           context.dispatch('findAllStudent');
           resolve(result);
         }).catch((error)=>{
