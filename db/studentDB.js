@@ -26,7 +26,8 @@ module.exports = {
     batchDelete(ids){
         // console.log('join之前',ids);
         // console.log('join后的',ids.join());
-        var sql = "delete from xk_student where id in ("+ids.join()+")";
+        // var sql = "delete from xk_student where id in ("+ids.join()+")";
+        var sql = "delete from xk_student where id ="+ids;
         console.log(sql);
         return pool.execute(sql);
     },

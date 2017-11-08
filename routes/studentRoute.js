@@ -13,6 +13,7 @@ route.get('/findAll',(req,resp)=>{
 });
 //通过id查询
 route.get('/findById',(req,resp)=>{
+  // console.log(req.query);
   studentDB.findById(req.query.id).then((data)=>{
     resp.send(data);
   }).catch((error)=>{
@@ -29,7 +30,6 @@ route.get('/query/:keys',(req,resp)=>{
 })
 //录入
 route.post('/save',(req,resp)=>{
-  console.log(req.body);
   let student = new Student();
   Object.assign(student,req.body);
   studentDB.save(student).then((data)=>{
@@ -42,7 +42,6 @@ route.post('/save',(req,resp)=>{
 route.post("/update",(req,resp)=>{
   let student = new Student();
   Object.assign(student,req.body);
-  console.log(student);
   studentDB.update(student).then((data)=>{
     resp.send(data);
   }).catch((error)=>{
@@ -51,8 +50,9 @@ route.post("/update",(req,resp)=>{
 })
 //批量删除
 route.post('/batchDelete',(req,resp)=>{
-    // console.log('原始数据',req.body.ids);
-    var ids = JSON.parse(req.body.ids);
+    // console.log('原始数据',req.body.ids );
+    // var ids = JSON.parse(req.body.ids);
+    var ids = req.body.ids;
     // console.log('parse之后的',ids);
     studentDB.batchDelete(ids).then((data)=>{
         resp.send(data);
